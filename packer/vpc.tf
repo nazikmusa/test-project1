@@ -1,11 +1,11 @@
 resource "aws_vpc" "group-2" {
-    cidr_block = var.vpc_cidr
+  cidr_block = var.vpc_cidr
 }
 
 resource "aws_subnet" "main" {
-  vpc_id     = aws_vpc.group-2.id
-  cidr_block = var.subnet1
-  availability_zone = "${var.region}a"
+  vpc_id                  = aws_vpc.group-2.id
+  cidr_block              = var.subnet1
+  availability_zone       = "${var.region}a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -14,9 +14,9 @@ resource "aws_subnet" "main" {
 }
 
 resource "aws_subnet" "main2" {
-  vpc_id     = aws_vpc.group-2.id
-  cidr_block = var.subnet2
-  availability_zone = "${var.region}b"
+  vpc_id                  = aws_vpc.group-2.id
+  cidr_block              = var.subnet2
+  availability_zone       = "${var.region}b"
   map_public_ip_on_launch = true
 
   tags = {
@@ -25,9 +25,9 @@ resource "aws_subnet" "main2" {
 }
 
 resource "aws_subnet" "main3" {
-  vpc_id     = aws_vpc.group-2.id
-  cidr_block = var.subnet3
-  availability_zone = "${var.region}c"
+  vpc_id                  = aws_vpc.group-2.id
+  cidr_block              = var.subnet3
+  availability_zone       = "${var.region}c"
   map_public_ip_on_launch = true
 
   tags = {
@@ -44,7 +44,7 @@ resource "aws_internet_gateway" "gw" {
 }
 
 resource "aws_route_table" "example" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.group-2.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -57,16 +57,16 @@ resource "aws_route_table" "example" {
 }
 
 resource "aws_route_table_association" "a" {
-  subnet_id = aws_subnet.main.id
+  subnet_id      = aws_subnet.main.id
   route_table_id = aws_route_table.example.id
 }
 
 resource "aws_route_table_association" "b" {
-  subnet_id = aws_subnet.main2.id
+  subnet_id      = aws_subnet.main2.id
   route_table_id = aws_route_table.example.id
 }
 
 resource "aws_route_table_association" "c" {
-  subnet_id = aws_subnet.main3.id
+  subnet_id      = aws_subnet.main3.id
   route_table_id = aws_route_table.example.id
 }

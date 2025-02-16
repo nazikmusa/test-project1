@@ -11,8 +11,8 @@ variable "key_name" {
     default = "group-2"
 }
 
-variable "vpc_cidr" {
-    default = "10.0.0.0/16"
+variable "vpc_cidr"  {
+ default = "10.0.0.0/16"
 }
 
 variable subnet1 {
@@ -26,4 +26,7 @@ variable subnet3 {
 }
 variable port {
     default = [22, 80]
+}
+variable "instance_name" {
+    default = "wordpress"
 }
