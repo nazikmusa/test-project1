@@ -1,5 +1,5 @@
 provider aws {
-    region = var.region
+    region = "us-east-2"
 }
 
 resource "aws_key_pair" "deployer" {
@@ -29,7 +29,7 @@ resource "aws_instance" "wordpress" {
   #availability_zone = "us-east-2c"
   subnet_id = "subnet-059bab6cb0aa00fc7"
   key_name = aws_key_pair.deployer.key_name
-  vpc_security_group_ids = [aws_security_group.allow_tls.id]
+  vpc_security_group_ids = [aws_security_group.group-2.id]
   user_data = file("wordpress.sh")
 
   tags = {
@@ -38,6 +38,6 @@ resource "aws_instance" "wordpress" {
 }
 
 output ec2 {
-    value = aws_instance.web.public_ip
+    value = aws_instance.wordpress.public_ip
     sensitive = true
 }

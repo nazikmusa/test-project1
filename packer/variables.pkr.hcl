@@ -1,20 +1,20 @@
-# variable "ami_name" {
-#   default = "wordpress-ami"
-# }
-# variable "instance_type" {
-#   default = "t2.micro"
-# }
-# variable region {
-#     default = "us-east-2"
-# }
+variable "ami_name" {
+  default = "wordpress-ami"
+}
+variable "instance_type" {
+  default = "t2.micro"
+}
+variable region {
+    default = "us-east-2"
+}
 variable "key_name" {
     default = "group-2"
 }
 
-variable vpc_cidr {
+variable "vpc_cidr" {
     default = "10.0.0.0/16"
-    type = string
 }
+
 variable subnet1 {
     default = "10.0.1.0/24"
 }
