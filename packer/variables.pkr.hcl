@@ -1,14 +1,12 @@
-variable "ami_name" {
-  default = "wordpress-ami"
-}
-variable "instance_type" {
-  default = "t2.micro"
-}
-variable region {
-    default = "us-east-2"
-    type = string
-    description = "Provide a region"
-}
+# variable "ami_name" {
+#   default = "wordpress-ami"
+# }
+# variable "instance_type" {
+#   default = "t2.micro"
+# }
+# variable region {
+#     default = "us-east-2"
+# }
 variable "key_name" {
     default = "group-2"
 }

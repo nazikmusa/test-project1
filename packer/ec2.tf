@@ -6,12 +6,12 @@ data "aws_ami" "wordpress" {
   # Filters to match the AMI by name or any other tags you might use
   filter {
     name   = "name"
-    values = ["WordPress-AMI"]  # Replace with the prefix of your Packer AMI name
+    values = ["wordpress-ami"]  # Replace with the prefix of your Packer AMI name
   }
 } 
 
 
-resource "aws_instance" "group-2" {
+resource "aws_instance" "main" {
   ami           = data.aws_ami.wordpress.id
   instance_type = var.instance_type
   subnet_id = aws_subnet.main.id
