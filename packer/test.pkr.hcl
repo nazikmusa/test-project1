@@ -7,17 +7,17 @@ packer {
   }
 }
 
-# variable "ami_name" {
-#   default = "wordpress-ami"
-# }
+variable "ami_name" {
+  default = "wordpress-ami"
+}
 
-# variable "instance_type" {
-#   default = "t2.micro"
-# }
+variable "instance_type" {
+  default = "t2.micro"
+}
 
-# variable "region" {
-#   default = "us-east-2"
-# }
+variable "region" {
+  default = "us-east-2"
+}
 
 source "amazon-ebs" "wordpress" {
   ami_name      = var.ami_name
