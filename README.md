@@ -10,6 +10,42 @@ Packer is
 * A common use is creating Golden Images to use in cloud infrastructure.
 
   
+### Download Packer 
+1. Offical website: Packer 
+[
+](https://developer.hashicorp.com/packer/install)
+
+2. Package Manager:
+  * Homebrew (macOS/Linux):nginx - brew install packer
+  * APT (Ubuntu/Debian):arduino - sudo apt-get install packer
+  * Chocolately (Windows):nginx - choco install packer
+
+Aftr installing, verify the installation by running: packer --version
+
+
+#### Structure
+1. Display the installed version of Packer
+```
+packer version   
+```
+2. Initialize Packer configuration, downloading necessary plugins
+   ```
+   packer init .
+   ```
+3. Validates the syntax and configuration of your Packer
+```
+packer validate .
+```
+4. Builds an image
+```
+packer build .
+```
+5. Shows infor about a template
+```
+packer inspect
+```
+
+   
 
 
 
