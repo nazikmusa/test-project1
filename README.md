@@ -20,18 +20,18 @@ Packer is
   * APT (Ubuntu/Debian):arduino - sudo apt-get install packer
   * Chocolately (Windows):nginx - choco install packer
 
-Aftr installing, verify the installation by running: packer --version
+After installing, verify the installation by running: packer --version
 
 
-#### Structure
+#### Structure of Packer
 1. Display the installed version of Packer
 ```
 packer version   
 ```
 2. Initialize Packer configuration, downloading necessary plugins
-   ```
-   packer init .
-   ```
+```
+packer init .
+```
 3. Validates the syntax and configuration of your Packer
 ```
 packer validate .
@@ -44,14 +44,36 @@ packer build .
 ```
 packer inspect
 ```
+#### Connection with Terraform
+Steps:
+1. VPC
+2. Security group
+3. EC2
+4. AMI Filter
 
+Bastion key:
+```
+Provide your ssh-key to the instance to access instance passwordless
+```
+
+Data
+```
+Provide path to create AMI
+```
+
+#### Conclution 
+* Automation
+* Fast Deployment
+* Multi compability
+  
    
+#### References 
+* Intro to Packer with AWS:
+  https://www.youtube.com/watch?v=dde-bWUeRMo
+
+* Packer Documentation:
+  https://developer.hashicorp.com/packer/docs/intro
 
 
 
 
-
-```
-1.Created AMI using Packer command
-2.Will create a new instance using Packer AMI
-```
