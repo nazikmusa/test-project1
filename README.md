@@ -26,7 +26,7 @@ After installing, verify the installation by running: packer --version
 #### Structure of Packer
 1. Display the installed version of Packer
 ```
-packer version   
+packer --version   
 ```
 2. Initialize Packer configuration, downloading necessary plugins
 ```
