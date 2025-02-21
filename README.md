@@ -89,6 +89,8 @@ Run
 Terraform init
 Terraform apply
 ```
+### You will be able to create a new instance with Golden Image
+
 
 #### Conclution 
 * Automation
