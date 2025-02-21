@@ -53,7 +53,7 @@ Steps:
 
 Bastion key:
 ```
-Provide your ssh-key to the instance to access instance passwordless
+# Provide your ssh-key to the instance to access instance passwordless
 # Data source to find the AMI by name or tag
 data "aws_ami" "wordpress" {
   most_recent = true
