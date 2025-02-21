@@ -54,11 +54,40 @@ Steps:
 Bastion key:
 ```
 Provide your ssh-key to the instance to access instance passwordless
+# Data source to find the AMI by name or tag
+data "aws_ami" "wordpress" {
+  most_recent = true
+  owners      = ["self"] # Use "self" if the AMI was created in your AWS account
+
+  # Filters to match the AMI by name or any other tags you might use
+  filter {
+    name   = "name"
+    values = ["wordpress-ami"] # Replace with the prefix of your Packer AMI name
+  }
+}
+
+
+resource "aws_instance" "group-2" {
+  ami                    = data.aws_ami.wordpress.id
+  instance_type          = var.instance_type
+  subnet_id              = aws_subnet.main.id
+  key_name               = aws_key_pair.group-2.key_name
+  vpc_security_group_ids = [aws_security_group.group-2.id]
+
+  tags = {
+    Name = var.instance_name
+  }
+
+  volume_tags = {
+    backup = "True"
+  }
+}
 ```
 
-Data
+Run 
 ```
-Provide path to create AMI
+Terraform init
+Terraform apply
 ```
 
 #### Conclution 
